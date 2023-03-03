@@ -25,19 +25,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //instantiate the resultData function
+        mViewModel.getResultData()
+
 
         binding.apply {
             mViewModel.albumPhoto.observe(this@MainActivity) { result ->
-                //converting to usable type
-                val bindingData: List<AlbumPhotoUIObject> = converter.convertData(result.data)
+
                 parentRV.apply {
-                    adapter = ParentAdapter(bindingData)
+                    adapter = ParentAdapter(result.data)
                     scrollToPosition(Integer.MAX_VALUE/2)
                 }
 
                 progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
                 errorMessage.isVisible = result is Resource.Error && result.data.isNullOrEmpty()
                 errorMessage.text = result.error?.localizedMessage
+            }
+//            mViewModel.resultData.observe(this@MainActivity){ resultData ->
+
             }
         }
     }

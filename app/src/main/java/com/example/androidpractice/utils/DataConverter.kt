@@ -7,7 +7,7 @@ import com.example.androidpractice.model.AlbumPhotoUIObject
 class DataConverter {
     private val hashMapIdWise = HashMap<Int, ArrayList<AlbumPhoto>>()
 
-    fun convertData(albumPhotos:List<AlbumPhoto>?):List<AlbumPhotoUIObject>{
+    fun convertData(albumPhotos:List<AlbumPhoto>?): List<AlbumPhotoUIObject> {
         val customResponse = ArrayList<AlbumPhotoUIObject>()
 
         albumPhotos?.forEach { albumPhoto ->
