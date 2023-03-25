@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.androidpractice.model.AlbumPhoto
+import com.example.androidpractice.model.AlbumPhotoUIObject
 import kotlinx.coroutines.flow.Flow
 
 @Dao

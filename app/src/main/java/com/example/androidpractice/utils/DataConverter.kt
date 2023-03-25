@@ -3,12 +3,14 @@ package com.example.androidpractice.utils
 import android.util.Log
 import com.example.androidpractice.model.AlbumPhoto
 import com.example.androidpractice.model.AlbumPhotoUIObject
+import kotlinx.coroutines.delay
 
 class DataConverter {
     private val hashMapIdWise = HashMap<Int, ArrayList<AlbumPhoto>>()
 
-    fun convertData(albumPhotos:List<AlbumPhoto>?): List<AlbumPhotoUIObject> {
+  fun convertData(albumPhotos:List<AlbumPhoto>?): List<AlbumPhotoUIObject> {
         val customResponse = ArrayList<AlbumPhotoUIObject>()
+
 
         albumPhotos?.forEach { albumPhoto ->
             if (hashMapIdWise.contains(albumPhoto.albumId)){

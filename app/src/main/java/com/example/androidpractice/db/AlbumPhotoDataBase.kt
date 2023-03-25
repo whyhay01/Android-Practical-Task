@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.androidpractice.model.AlbumPhoto
+import com.example.androidpractice.model.AlbumPhotoUIObject
 
 @Database(entities = [AlbumPhoto::class], version = 1)
 abstract class AlbumPhotoDataBase: RoomDatabase() {
