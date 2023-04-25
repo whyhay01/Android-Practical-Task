@@ -21,7 +21,6 @@ class ChildAdapter(private val albumPhoto: List<AlbumPhoto>) :
         val dataPosition = position % albumPhoto.size
         val bindingData: AlbumPhoto = albumPhoto[dataPosition]
         holder.bindView(bindingData)
-
     }
 
     override fun getItemCount(): Int = Integer.MAX_VALUE

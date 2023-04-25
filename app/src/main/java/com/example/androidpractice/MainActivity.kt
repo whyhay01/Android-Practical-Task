@@ -13,7 +13,7 @@ import com.example.androidpractice.viewmodel.AlbumViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding:ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
     private val converter = DataConverter()
 
     private val mViewModel by lazy {
@@ -29,10 +29,12 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             mViewModel.albumPhoto.observe(this@MainActivity) { result ->
                 //converting to usable type
-                val bindingData: List<AlbumPhotoUIObject> = converter.convertData(result.data)
-                parentRV.apply {
-                    adapter = ParentAdapter(bindingData)
-                    scrollToPosition(Integer.MAX_VALUE/2)
+                if (result is Resource.Success || result.data!!.isNotEmpty()) {
+                    val bindingData: List<AlbumPhotoUIObject> = converter.convertData(result.data)
+                    parentRV.apply {
+                        adapter = ParentAdapter(bindingData)
+                        scrollToPosition(Integer.MAX_VALUE / 2)
+                    }
                 }
 
                 progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()

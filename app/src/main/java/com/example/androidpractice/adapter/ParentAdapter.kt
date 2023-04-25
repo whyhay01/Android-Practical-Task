@@ -9,14 +9,6 @@ import com.example.androidpractice.model.AlbumPhotoUIObject
 
 class ParentAdapter(private val albumPhotoUIObjects: List<AlbumPhotoUIObject>): RecyclerView.Adapter< ParentAdapter.ParentViewHolder>() {
 
-//    private var albumPhotoUIObjects: List<AlbumPhotoUIObject> = emptyList()
-
-//    fun addItems(albumPhotoUIObjects: List<AlbumPhotoUIObject>){
-//        this.albumPhotoUIObjects = albumPhotoUIObjects
-//        notifyDataSetChanged()
-//    }
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParentViewHolder {
         val view = DisplayAlbumBinding.inflate(LayoutInflater.from(parent.context))
         return ParentViewHolder(view)
